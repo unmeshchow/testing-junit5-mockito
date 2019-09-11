@@ -8,7 +8,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
 class SpecialitySDJpaServiceTest {
@@ -21,11 +22,17 @@ class SpecialitySDJpaServiceTest {
 
     @Test
     void testDelete() {
-        service.delete(new Speciality());
+        Speciality speciality = new Speciality();
+        service.delete(speciality);
+
+        verify(specialtyRepository, times(1)).delete(speciality);
     }
 
     @Test
     void testDeleteById() {
         service.deleteById(1L);
+
+        verify(specialtyRepository, times(1)).deleteById(1L);
+
     }
 }
