@@ -1,4 +1,4 @@
-package guru.springframework.sfgpetclinic;
+package guru.springframework;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -22,6 +22,6 @@ public class AnnotationMocksTest {
 
     @Test
     void testMock() {
-        map.put("keyvalue", "foo");
+        map.put("key", "foo");
     }
 }
